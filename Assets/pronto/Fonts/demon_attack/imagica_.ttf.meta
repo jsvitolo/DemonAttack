@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c6eebc6168ba94b9e9345715202c960f
+timeCreated: 1494724631
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Imagica
+  fontNames:
+  - Imagica
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
