@@ -14,14 +14,12 @@ public class GameController : MonoBehaviour
 	public float waveWait;
 
 	public Text scoreText;
-	//public GUIText restartText;
 	public Text gameOverText;
     public GameObject restartButton;
     public GameObject menuButton;
 
     private Text levelText;
     private GameObject levelImage;
-    //private bool doingSetup;
 
     private bool gameOver;
 	private bool restart;
@@ -35,7 +33,6 @@ public class GameController : MonoBehaviour
 	{
 		gameOver = false;
 		restart  = false;
-		//restartText.text  = "";
         restartButton.SetActive(false);
         menuButton.SetActive(false);
 		gameOverText.text = "";
@@ -44,18 +41,15 @@ public class GameController : MonoBehaviour
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
 
-        //doingSetup = true; // ve se vai remover
         levelImage = GameObject.Find("Level Image");
         levelText = GameObject.Find("Level Text").GetComponent<Text>();
         levelText.text = "NIVEL " + level;
-        //levelImage.SetActive(true);
         Invoke("HideLevelImage", levelDelay);
 	}
 
     private void HideLevelImage()
     {
         levelImage.SetActive(false);
-        //doingSetup = false; // ver se vai remover
     }
 
 	void Update ()
@@ -82,7 +76,6 @@ public class GameController : MonoBehaviour
 			{
                 menuButton.SetActive(true);
                 restartButton.SetActive (true);
-				//restartText.text = "Press 'Space' for Restart";
 				restart = true;
 				break;
 			}
@@ -105,7 +98,7 @@ public class GameController : MonoBehaviour
     {
         switch (score)
         {
-            case 50 :
+            case 100 :
                 hazardCount = 4;
                 level = 2;
                 levelText.text = "NIVEL " + level;
@@ -113,10 +106,28 @@ public class GameController : MonoBehaviour
 				Invoke("HideLevelImage", levelDelay);
                 break;
 
-            case 150 :
+            case 200 :
                 hazardCount = 5;
                 level = 3;
                 spawnWait = 0.4f;
+				levelText.text = "NIVEL " + level;
+				levelImage.SetActive(true);
+				Invoke("HideLevelImage", levelDelay);
+				break;
+
+			case 300:
+				hazardCount = 6;
+				level = 4;
+				spawnWait = 0.3f;
+				levelText.text = "NIVEL " + level;
+				levelImage.SetActive(true);
+				Invoke("HideLevelImage", levelDelay);
+				break;
+
+			case 400:
+				hazardCount = 8;
+				level = 5;
+				spawnWait = 0.2f;
 				levelText.text = "NIVEL " + level;
 				levelImage.SetActive(true);
 				Invoke("HideLevelImage", levelDelay);
